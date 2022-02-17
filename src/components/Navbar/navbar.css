@@ -1,0 +1,23 @@
+nav {
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  background-color: #21222a;
+  font-family: Inter, sans-serif;
+  padding: 5px 15px;
+}
+
+nav > img {
+  width: 60px;
+}
+nav > h3 {
+  margin-right: auto;
+  color: #61dafb;
+  font-weight: 700;
+  font-size: 22px;
+}
+nav > ul {
+  display: flex;
+  list-style-type: none;
+  list-style: none;
+}

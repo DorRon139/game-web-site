@@ -1,0 +1,28 @@
+.blackjack-game {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-image: url("images/table.png");
+  background-size: cover;
+  text-align: center;
+  padding: 8px;
+  font-weight: bold;
+  color: white;
+  min-height: 50vh;
+}
+
+#black-title {
+  color: goldenrod;
+}
+
+#message-par {
+  font-style: italic;
+}
+
+.blackjack--cardsRender {
+  display: flex;
+  justify-content: center;
+}
+
+.blackjack--card {
+  padding: 5px;
+}
