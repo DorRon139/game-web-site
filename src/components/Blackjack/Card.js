@@ -5,7 +5,7 @@ const Card = (props) => {
     <div>
       <img
         className="blackjack--card"
-        height={"110px"}
+        height={"130px"}
         src={props.imgURL}
         alt={`${props.value} ${props.sign}`}
       />

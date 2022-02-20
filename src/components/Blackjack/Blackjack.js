@@ -5,10 +5,11 @@ import DeckList from "./deckList";
 import Card from "./Card";
 import getRandomCard from "./getRandomCard";
 
-let playerCards = [];
-let dillerCards = [];
-let dillerDeck = [];
-let sum = 0;
+let playerHand = [];
+let dillerHand = [];
+let deck = [];
+let playerSum = 0;
+let dillerSum = 0;
 
 const Blackjack = () => {
   let player = {
@@ -19,29 +20,37 @@ const Blackjack = () => {
   let [hasBlackJack, setHasBlackjack] = useState(false);
   let [isAlive, setIsAlive] = useState(false);
   let [message, setMessage] = useState("Welcome To The Tabale");
-  let [sumMessage, setSumMessage] = useState("Sum: ");
-  let [cardsToRender, setCardsToRender] = useState([]);
+  let [playerHandToRender, setPlayerHandToRender] = useState([]);
+  let [dillerHandToRender, setDillerHandToRender] = useState([]);
   let cardMessage = "Cards: ";
 
   const startGame = () => {
-    dillerDeck = new DeckList().deckList;
-    playerCards = [];
+    deck = new DeckList().deckList;
+    playerHand = [];
+    dillerHand = [];
     setIsAlive(true);
     setHasBlackjack(false);
-    let firstCard = getRandomCard(dillerDeck);
-    let secondCard = getRandomCard(dillerDeck);
-    sum = firstCard.blackjackValue + secondCard.blackjackValue;
-    playerCards.push(firstCard);
-    playerCards.push(secondCard);
+    let firstCard = getRandomCard(deck);
+    let secondCard = getRandomCard(deck);
+    let thirdCard = getRandomCard(deck);
+    let forthCard = getRandomCard(deck);
+    playerSum = firstCard.blackjackValue + secondCard.blackjackValue;
+    dillerSum = forthCard.blackjackValue;
+    playerHand.push(firstCard);
+    playerHand.push(secondCard);
+    dillerHand.push(thirdCard);
+    dillerHand.push(forthCard);
+    console.log(playerHand);
+    console.log(dillerHand);
+    console.log(deck);
     renderGame();
   };
 
   const renderGame = () => {
-    setSumMessage("Sum: " + sum);
     theRenderedCards();
-    if (sum <= 20) {
+    if (playerSum <= 20) {
       setMessage("Do you want to draw a new card?");
-    } else if (sum === 21) {
+    } else if (playerSum === 21) {
       setMessage("You've got Blackjack!");
       setHasBlackjack(true);
     } else {
@@ -52,9 +61,9 @@ const Blackjack = () => {
 
   const newCard = () => {
     if (isAlive && !hasBlackJack) {
-      let new_card = getRandomCard(dillerDeck);
-      sum += new_card.blackjackValue;
-      playerCards.push(new_card);
+      let new_card = getRandomCard(deck);
+      playerSum += new_card.blackjackValue;
+      playerHand.push(new_card);
       renderGame();
     } else {
       setMessage("Start a New Game");
@@ -62,8 +71,8 @@ const Blackjack = () => {
   };
 
   const theRenderedCards = () => {
-    setCardsToRender(
-      playerCards.map((card) => {
+    setPlayerHandToRender(
+      playerHand.map((card) => {
         return (
           <Card
             key={`${card.value + card.sign[0]}`}
@@ -74,28 +83,58 @@ const Blackjack = () => {
         );
       })
     );
+    //TODO:Render diller cards logig
+    setDillerHandToRender(
+      dillerHand.map((card, index) => {
+        if (!index) {
+          return (
+            <Card
+              key={`Disable`}
+              imgURL={"./images/Cards/blue_back.png"}
+              value=""
+              sign=""
+            />
+          );
+        } else {
+          return (
+            <Card
+              key={`${card.value + card.sign[0]}`}
+              imgURL={card.imgURL}
+              value={card.value}
+              sign={card.sign}
+            />
+          );
+        }
+      })
+    );
   };
 
   return (
     <div className="blackjack-game">
       <h1 id="black-title">Blackjack</h1>
       <p id="message-par">{message}</p>
+      <p>{`Diller Cards: ${dillerSum}`}</p>
+      <div className="blackjack--dillerHandToRender">{dillerHandToRender}</div>
       <p id="cards-par">{cardMessage}</p>
-      <div className="blackjack--cardsRender">{cardsToRender}</div>
-
-      <p id="sum-par">{sumMessage}</p>
+      <div className="blackjack--playerHandToRender">{playerHandToRender}</div>
+      <p id="sum-par">{`Sum: ${playerSum}`}</p>
       <Button
         variant="contained"
-        style={{ margin: "5px" }}
+        style={{ marginRight: "5px" }}
         onClick={() => startGame()}
         id="start-btn"
       >
         START GAME
       </Button>
-
-      <Button variant="contained" onClick={() => newCard()} id="start-btn">
-        NEW CARD
+      <Button
+        variant="contained"
+        style={{ marginRight: "5px" }}
+        onClick={() => newCard()}
+        id="start-btn"
+      >
+        HIT
       </Button>
+      <Button variant="contained">STAND</Button>{" "}
       <p id="player-par">{playerFullName}</p>
     </div>
   );

@@ -18,11 +18,14 @@
   font-style: italic;
 }
 
-.blackjack--cardsRender {
+.blackjack--playerHandToRender {
   display: flex;
   justify-content: center;
 }
-
+.blackjack--dillerHandToRender {
+  display: flex;
+  justify-content: center;
+}
 .blackjack--card {
-  padding: 5px;
+  padding-right: 5px;
 }
