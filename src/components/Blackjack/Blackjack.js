@@ -20,6 +20,7 @@ const Blackjack = () => {
 
   const startGame = () => {
     dealler.isDeallerTurn = false;
+    player.inGame = true;
     player.bet = parseInt(document.getElementById("outlined-required").value);
     if (betValidation(player.chips, player.bet)) {
       player.chips -= player.bet;
@@ -53,11 +54,13 @@ const Blackjack = () => {
     }
   };
   const doubleClick = () => {
-    if (betValidation(player.chips, player.bet)) {
-      player.chips -= player.bet;
-      player.bet += player.bet;
-      newCard();
-      deallerTurn();
+    if (player.inGame) {
+      if (betValidation(player.chips, player.bet)) {
+        player.chips -= player.bet;
+        player.bet += player.bet;
+        newCard();
+        deallerTurn();
+      }
     }
   };
   const newCard = () => {
@@ -91,7 +94,9 @@ const Blackjack = () => {
     } else if (player.sum > 21 || player.sum <= dealler.sum) {
       setMessage("You Lose, Maybe next Time");
     }
+    player.inGame = false;
   };
+
   const betValidation = (chips, bet) => {
     if (bet > chips) {
       alert(`You Dont Have ${bet}$ to Bet`);

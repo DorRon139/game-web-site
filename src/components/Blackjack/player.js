@@ -4,7 +4,7 @@ class Player {
     this.chips = chips;
     this.hand = [];
     this.sum = 0;
-    this.inGame = true;
+    this.inGame = false;
     this.bet = 0;
   }
 
