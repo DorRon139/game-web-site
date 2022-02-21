@@ -5,17 +5,24 @@ nav {
   background-color: #21222a;
   font-family: Inter, sans-serif;
   padding: 5px 15px;
+  justify-content: space-between;
 }
 
-nav > img {
+nav > a {
+  display: flex;
+  align-items: center;
+}
+
+nav > a > img {
   width: 60px;
 }
-nav > h3 {
+nav > a > h3 {
   margin-right: auto;
   color: #61dafb;
   font-weight: 700;
   font-size: 22px;
 }
+
 nav > ul {
   display: flex;
   list-style-type: none;

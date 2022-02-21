@@ -12,10 +12,12 @@
 
 #black-title {
   color: goldenrod;
+  margin: 3px;
 }
 
 #message-par {
   font-style: italic;
+  margin: 0px;
 }
 
 .blackjack--playerHandToRender {
@@ -28,4 +30,8 @@
 }
 .blackjack--card {
   padding-right: 5px;
+}
+
+.blackjack--start-btn {
+  align-items: center;
 }

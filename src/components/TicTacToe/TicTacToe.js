@@ -90,7 +90,6 @@ const TicTacToe = () => {
     }
     setCells(squares);
     checkForWinner(squares);
-    console.log(squares);
   };
 
   const handleRestartFunc = () => {

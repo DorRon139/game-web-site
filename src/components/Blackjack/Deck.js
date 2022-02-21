@@ -1,3 +1,5 @@
+import CardObject from "./cardClass";
+
 const SIGNED = ["Clubs", "Spades", "Diamonds", "Hearts"];
 const VALUES = {
   A: 1,
@@ -20,12 +22,11 @@ const generateDeck = () => {
     return Object.keys(VALUES).map((value) => {
       const imgURL = `./images/Cards/${value}${sign[0]}.png`;
       const blackjackValue = VALUES[value];
-      return {
-        value: value,
-        sign: sign,
-        blackjackValue: blackjackValue,
-        imgURL: imgURL,
-      };
+      return new CardObject(imgURL, blackjackValue, sign, value);
+      // value: value,
+      // sign: sign,
+      // blackjackValue: blackjackValue,
+      // imgURL: imgURL,
     });
   });
 };

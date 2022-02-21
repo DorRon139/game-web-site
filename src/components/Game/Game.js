@@ -7,6 +7,7 @@ import Blackjack from "../Blackjack/Blackjack";
 const Game = ({ game }) => {
   return (
     <div className="game">
+      {game == 0 && <h1>Home</h1>}
       {game == 1 && <TicTacToe />}
       {game == 2 && <Blackjack />}
     </div>
