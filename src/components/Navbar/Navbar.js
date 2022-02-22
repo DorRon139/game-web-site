@@ -3,17 +3,11 @@ import "./navbar.css";
 import { Button } from "@mui/material";
 
 const Navbar = (props) => {
-  const gameType = {
-    home: 0,
-    ticTacToe: 1,
-    blackjack: 2,
-  };
-
   return (
     <nav>
       <a
         onClick={() => {
-          props.onSelectGame(gameType.home);
+          props.onSelectGame(0);
         }}
       >
         <img src={"/images/logo.png"} />
@@ -21,22 +15,10 @@ const Navbar = (props) => {
       </a>
       <ul>
         <li>
-          <Button
-            onClick={() => {
-              props.onSelectGame(gameType.ticTacToe);
-            }}
-          >
-            TicTacToe
-          </Button>
+          <Button>About</Button>
         </li>
         <li>
-          <Button
-            onClick={() => {
-              props.onSelectGame(gameType.blackjack);
-            }}
-          >
-            BlackJack
-          </Button>
+          <Button>Contact Us</Button>
         </li>
       </ul>
     </nav>

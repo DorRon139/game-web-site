@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Navbar onSelectGame={setGame} />
-      <Game game={game} />
+      <Game setGame={setGame} game={game} />
       <Footer />
     </div>
   );

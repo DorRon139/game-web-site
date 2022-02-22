@@ -1,0 +1,13 @@
+.home--gallery {
+  display: flex;
+  justify-content: center;
+}
+
+.home--section {
+  width: 90%;
+  margin-left: 80px;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
