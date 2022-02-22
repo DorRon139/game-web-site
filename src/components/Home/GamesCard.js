@@ -11,7 +11,8 @@ const GamesCard = (props) => {
       style={{
         margin: "8px",
         width: "20%",
-        maxHeight: "290px",
+        minWidth: "230px",
+        minHeight: "280px",
         alignItems: "center",
         justifyContent: "center",
       }}

@@ -9,7 +9,7 @@ const gameData = [
     id: 2,
     title: "BlackJack",
     imgName: "blackjack.jpg",
-    description: "Love cards games?\nPlay Blackjack!",
+    description: "Love cards games?",
   },
 ];
 
