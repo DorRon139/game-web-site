@@ -11,6 +11,17 @@ const gameData = [
     imgName: "blackjack.jpg",
     description: "Love cards games?",
   },
+  {
+    id: 3,
+    title: "Trivia",
+    imgName: "trivia.png",
+    description: "Think U know EVERYTHING?",
+  },
+  {
+    id: 4,
+    title: "Jazz Jackrabbit2",
+    imgName: "",
+  },
 ];
 
 export default gameData;
