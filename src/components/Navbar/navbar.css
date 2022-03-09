@@ -23,6 +23,10 @@ nav > a > h3 {
   font-size: 22px;
 }
 
+nav > a:hover {
+  cursor: pointer;
+}
+
 nav > ul {
   display: flex;
   list-style-type: none;

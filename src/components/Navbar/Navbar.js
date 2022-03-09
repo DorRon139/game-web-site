@@ -20,6 +20,9 @@ const Navbar = (props) => {
         <li>
           <Button>Contact Us</Button>
         </li>
+        <li>
+          <Button>Log Out</Button>
+        </li>
       </ul>
     </nav>
   );

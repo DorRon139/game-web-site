@@ -5,8 +5,9 @@ import Player from "./player";
 import Dealler from "./dealler";
 import CardObject from "./cardClass";
 import TextField from "@mui/material/TextField";
+import user from "../../user/userObj";
 
-let player = new Player("Inbar", 600);
+let player = new Player(user.name, user.points);
 let dealler = new Dealler();
 
 const Blackjack = () => {
@@ -86,13 +87,15 @@ const Blackjack = () => {
   const checkForWinner = () => {
     if (player.sum <= 21 && player.sum > dealler.sum) {
       setMessage("You Won, Take Your Bet");
-
       player.chips += 2 * player.bet;
     } else if (player.sum <= 21 && dealler.sum > 21) {
       setMessage("The Diller is out, Take Your Bet");
       player.chips += 2 * player.bet;
     } else if (player.sum > 21 || player.sum <= dealler.sum) {
       setMessage("You Lose, Maybe next Time");
+    } else if (player.sum == dealler.sum) {
+      player.chips += player.bet;
+      setMessage("Draw");
     }
     player.inGame = false;
   };
@@ -131,69 +134,75 @@ const Blackjack = () => {
   };
 
   return (
-    <div className="blackjack-game">
-      <h1 id="black-title">Blackjack</h1>
-      <p id="message-par">{message}</p>
-      <p>{deallerSumMessage}</p>
-      <div className="blackjack--dillerHandToRender">{dillerHandToRender}</div>
-      <p id="cards-par">Cards: </p>
-      <div className="blackjack--playerHandToRender">{playerHandToRender}</div>
-      <p id="sum-par">{playersumMessage}</p>
-      <section className="blackjack--btn--section">
-        <Button
-          variant="contained"
-          style={{ marginRight: "6px", width: "17%" }}
-          onClick={() => newCard()}
-          id="start-btn"
-        >
-          HIT
-        </Button>
-        <Button
-          variant="contained"
-          onClick={() => doubleClick()}
-          style={{ marginRight: "1px", width: "17%" }}
-        >
-          DOUBLE
-        </Button>{" "}
-        <Button
-          variant="contained"
-          onClick={() => {
-            if (player.inGame) {
-              deallerTurn();
-            }
-          }}
-          style={{ width: "17%" }}
-        >
-          STAND
-        </Button>{" "}
-      </section>
-      <section className="blackjack--start-btn">
-        <Button
-          variant="contained"
-          style={{
-            margin: "5px 6px 0px 0px",
-            height: "55px",
-            width: "17%",
-          }}
-          onClick={() => startGame()}
-          id="start-btn"
-        >
-          START GAME
-        </Button>
+    <div className="blackjack--father">
+      <div className="blackjack-game">
+        <h1 id="black-title">Blackjack</h1>
+        <p id="message-par">{message}</p>
+        <p>{deallerSumMessage}</p>
+        <div className="blackjack--dillerHandToRender">
+          {dillerHandToRender}
+        </div>
+        <p id="cards-par">Cards: </p>
+        <div className="blackjack--playerHandToRender">
+          {playerHandToRender}
+        </div>
+        <p id="sum-par">{playersumMessage}</p>
+        <section className="blackjack--btn--section">
+          <Button
+            variant="contained"
+            style={{ marginRight: "6px", width: "17%" }}
+            onClick={() => newCard()}
+            id="start-btn"
+          >
+            HIT
+          </Button>
+          <Button
+            variant="contained"
+            onClick={() => doubleClick()}
+            style={{ marginRight: "6px", width: "17%" }}
+          >
+            DOUBLE
+          </Button>
+          <Button
+            variant="contained"
+            onClick={() => {
+              if (player.inGame) {
+                deallerTurn();
+              }
+            }}
+            style={{ width: "17%" }}
+          >
+            STAND
+          </Button>{" "}
+        </section>
+        <section className="blackjack--start-btn">
+          <Button
+            variant="contained"
+            style={{
+              margin: "5px 6px 0px 0px",
+              height: "55px",
+              width: "17%",
+            }}
+            onClick={() => startGame()}
+            id="start-btn"
+          >
+            START GAME
+          </Button>
 
-        <TextField
-          id="outlined-required"
-          label="Place Your Bet"
-          type="number"
-          defaultValue="5"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          variant="filled"
-          style={{ width: "17%", marginTop: "5px" }}
-        />
-      </section>
-      <p id="player-par">{playerFullName}</p>
+          <TextField
+            id="outlined-required"
+            label="Place Your Bet"
+            type="number"
+            defaultValue="5"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            variant="filled"
+            style={{ width: "17%", marginTop: "5px" }}
+          />
+        </section>
+        <p id="player-par">{playerFullName}</p>
+      </div>
     </div>
   );
 };

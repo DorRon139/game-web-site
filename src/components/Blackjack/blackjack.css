@@ -1,3 +1,8 @@
+.blackjack--father {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .blackjack-game {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -7,7 +12,9 @@
   padding: 8px;
   font-weight: bold;
   color: white;
-  min-height: 50vh;
+  width: 60%;
+  min-height: 70vh;
+  max-height: 82vh;
 }
 
 #black-title {
@@ -28,6 +35,7 @@
   display: flex;
   justify-content: center;
 }
+
 .blackjack--card {
   padding-right: 5px;
 }

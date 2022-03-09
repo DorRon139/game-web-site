@@ -1,13 +1,20 @@
 .home--gallery {
-  display: flex;
-  justify-content: center;
+  display: block;
+  text-align: left;
+  align-items: center;
 }
 
 .home--section {
-  width: 90%;
-  margin-left: 80px;
+  border-style: solid;
+  border-color: #21222a;
+  border-width: 2px;
+  text-align: center;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
+}
+
+.cards--content:hover {
+  cursor: pointer;
 }

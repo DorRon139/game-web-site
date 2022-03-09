@@ -19,8 +19,21 @@ const gameData = [
   },
   {
     id: 4,
-    title: "Jazz Jackrabbit2",
-    imgName: "",
+    title: "Jazz Jackrabbit 2",
+    imgName: "jazz.jpg",
+    description: "Classic Game",
+  },
+  {
+    id: 5,
+    title: "Pokemon",
+    imgName: "pokemon.jpg",
+    description: "Pokeman Game",
+  },
+  {
+    id: 6,
+    title: "Worms",
+    imgName: "worms.jpg",
+    description: "Worms War!!",
   },
 ];
 

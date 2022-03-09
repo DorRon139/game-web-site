@@ -18,6 +18,7 @@ const Home = ({ setGame }) => {
   });
   return (
     <div className="home--gallery">
+      <h1>Games:</h1>
       <section className="home--section">{gamesList}</section>
     </div>
   );
