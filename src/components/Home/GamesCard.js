@@ -10,19 +10,21 @@ const GamesCard = (props) => {
     <Card
       style={{
         margin: "8px",
-        width: "20%",
-        minWidth: "230px",
-        minHeight: "280px",
+        width: "18%",
+        height: "310px",
+        minWidth: "190px",
+        minHeight: "180px",
         alignItems: "center",
         justifyContent: "center",
       }}
     >
-      <CardContent>
+      <CardContent className="cards--content">
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           {props.title}
         </Typography>
         <img
           width="100%"
+          style
           src={props.imgName}
           onClick={() => props.setGame(props.id)}
         />
