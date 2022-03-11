@@ -24,7 +24,6 @@ const GamesCard = (props) => {
         </Typography>
         <img
           width="100%"
-          style
           src={props.imgName}
           onClick={() => props.setGame(props.id)}
         />

@@ -29,12 +29,6 @@ const gameData = [
     imgName: "pokemon.jpg",
     description: "Pokeman Game",
   },
-  {
-    id: 6,
-    title: "Worms",
-    imgName: "worms.jpg",
-    description: "Worms War!!",
-  },
 ];
 
 export default gameData;
